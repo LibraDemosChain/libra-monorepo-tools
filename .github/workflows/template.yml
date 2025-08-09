@@ -1,0 +1,15 @@
+# .github/workflows/template.yml (à copier partout)
+name: CI/CD Standard LibraDemos
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Tests
+        run: npm test
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Security Scan
+        run: npm audit
